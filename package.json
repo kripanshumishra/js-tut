@@ -1,0 +1,20 @@
+{
+  "name": "tut-node",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev":"nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.1.3",
+    "lodash": "^4.17.21"
+  },
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
