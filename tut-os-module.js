@@ -13,3 +13,6 @@ freeMem : os.freemem(),
 totalMem : os.totalmem()
 }
 console.log(currentOs)
+
+
+// here mem is refered as memory
