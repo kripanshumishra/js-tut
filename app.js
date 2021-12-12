@@ -1,6 +1,8 @@
 
 //IMP NOTE ==>   __dirname is global variable ==> function can be a variable as it stores vlaues. int, float are kidda function ==> function and classes can be call as meathod 
 
+const { reject } = require("lodash")
+
 // int is class and almost all classes are called as function
 // global variable are those which can be excessed by anywhere in project 
 //__dirname returns current working directory
@@ -37,8 +39,21 @@
 // third ----> npm init-y (everything default) 
 
 
-const _ = require('lodash')
-const items = [1,[2,[3,[4,5]]]]
-const newItems = _.flattenDeep(items)
-console.log(newItems)
-console.log('hey peoples')
+// const _ = require('lodash')
+// const items = [1,[2,[3,[4,5]]]]
+// const newItems = _.flattenDeep(items)
+// console.log(newItems)
+// console.log('hey peoples')
+
+/*
+ 
+const {readFile} = require('fs');
+
+readFile('./content/subfolder/resul-asnch.txt', 'utf8', (err,data)=>{
+    if(err){
+        console.log(err);
+        return;
+    }
+    console.log(data);
+})
+*/

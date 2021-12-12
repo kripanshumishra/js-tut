@@ -16,7 +16,7 @@ readFile('./content/subfolder/text.txt','utf8',(err, result)=>{
             return // returns error
         }
         const second = result // setting the result to first varible
-    
+        console.log('error dinna come')
 
     //for appending the file pass flag argument
     writeFile('./content/subfolder/resul-asnch.txt',`I am writing the result : first file is ${first} and second file is ${second} `,(err,result)=>{
@@ -26,6 +26,14 @@ readFile('./content/subfolder/text.txt','utf8',(err, result)=>{
         }
         console.log(result)
         })
+        console.log("write \n")
     })
+    console.log("i am 2first call back \n")
 })
 // if we dont provide utf coding in arrgument of readfile then result will return buffen encoding
+console.log("first \n")
+
+
+/* one little excersise for you try to predict the order of execution of code */
+
+// try to use if condition in async so that you can catch it and error handling should be in sync way(use if condition) so that you catch them otherwise it's no use of it..
