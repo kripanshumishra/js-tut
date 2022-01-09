@@ -6,19 +6,22 @@
 // EventEmitter is class....  short way
 
 
-const EventEmitter = require('events')
+const EventEmitter = require('events');
+// const { connected } = require('process');
 const custemEmitter = new EventEmitter()
 
 custemEmitter.on('event trigger',()=> {
                 console.log('event triggered');
                 setTimeout(()=>{
-                    console.log('callback inside event trigged this will execute right after next custem event method because it is system written event so that event trigger will remain in js stack thriughout execution')
+                    console.log('callback inside event trigged this will execute right after next custem event method because it is system written event so that event trigger will remain in js stack throughout execution')
                 },0) // by setTimeout method i made it asynchronous
                 console.log('a')
                 
 })
 custemEmitter.on('event trigger',()=>{ console.log('\n event')})
+custemEmitter.on('egger',()=>{ console.log('\n egger')})
 custemEmitter.emit('event trigger' )
+custemEmitter.emit('egger' )
 
 
 
