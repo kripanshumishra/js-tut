@@ -125,10 +125,46 @@ app.get('/api/product/:productID',(req,res)=>{  //:productID is route parameter-
 
     
     const productResponse = product.find(x=> x.id === Number(productID)) // req.params is string coz link is always a string thats why we type cast it in number
-    res.json(productResponse)
+
+
+    if (!productResponse){  
+        return res.status(404).send('product didn\'t find')
+    }
+    return res.json(productResponse)
 })
 
 app.listen(5000, ()=>{
     console.log('server invoked')
+})
+
+app.get('/api/product/:productID/reviews/:reviewID',(req,res)=>{
+    console.log(req.params)
+    const {productID,reviewID}= req.params
+    res.send("<h1>Namastey world</h1>")
+})
+
+// query url
+app.get('/api/query',(req,res)=>{ // query will take the query made by you... you can use/write anything instead of query
+    console.log(`this is req.query object \n ${req.query}`) // this will log the obj according to your query for example go to url "http://localhost:5000/api/query?search=a&limit=2" it will console log a object with keys search and limit with values a,2 respectively
+    res.send('namastey world')
+})
+
+app.get('/api/v1/query',(req,res)=>{
+    let {search,limit}=req.query // obj leteral
+    // console.log(name+"\t this is limit -->"+limit)
+    let sorted_product =[...product]  // copy product array in sorted_product, (...)it is spread operator
+    if(search){ // it means if there is name in req.query 
+        sorted_product = sorted_product.filter((product)=>product.name.startsWith(search)) // name.startWith(search) will return all the name start with our search
+        // console.log(sorted_product.length)
+    }
+    if(limit){ // it means if there is name in req.query 
+        sorted_product = sorted_product.slice(0,Number(limit))
+    }
+    if(sorted_product.length<1){
+        // console.log('s')
+        return res.status(200).json({sucess:true, data:[]}) // here we are setting status as 200 coz there is nothing wrong with req and we are sending respond which is emptpy array 
+        // res.json takes js object keep in mind array too are object
+    }
+    return res.json(sorted_product)
 })
 

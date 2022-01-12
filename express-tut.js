@@ -24,7 +24,8 @@ app.get('/about', (req,res)=>{
 
 // this middleware has to be at the bottom otherwise it'll get execute in every req
 app.all('*',(req,res)=>{
-    res.status(404).send(`<h1>resource not found</h1>`)
+    res.status(404).send(`<h1>resource not found</h1>`) // through this middleware we are directly sending responce thats why we are not taking third parameter next
+
 })
 
 
